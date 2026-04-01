@@ -28,7 +28,6 @@ _termination_router() {
 
   # 1. TOOL mode (:tool)
   if [[ "$full_cmd" == :* ]]; then
-    echo ""
     if [ -x "$bin_path" ]; then
        "$bin_path" "$full_cmd"
     else
@@ -39,7 +38,6 @@ _termination_router() {
 
   # 2. PIPE mode (--)
   if [[ "$full_cmd" == --* ]]; then
-    echo ""
     if [ -x "$bin_path" ]; then
        "$bin_path" "$full_cmd"
     else
