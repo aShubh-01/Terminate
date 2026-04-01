@@ -1,0 +1,131 @@
+{
+  "read": {
+    "description": "Read content from a file",
+
+    "type": "object",
+
+    "required": ["filePath"],
+
+    "properties": {
+      "filePath": {
+        "type": "string",
+        "description": "Path to the file to read"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "examples": [
+      ":fs.read filePath=/path/to/file.txt",
+      ":fs.read {filePath:'/Users/name/documents/test.txt'}"
+    ]
+  },
+
+  "write": {
+    "description": "Write content to a file (overwrites existing content)",
+
+    "type": "object",
+
+    "required": ["filePath", "content"],
+
+    "properties": {
+      "filePath": {
+        "type": "string",
+        "description": "Path to the file to write"
+      },
+
+      "content": {
+        "type": "string",
+        "description": "Content to write to the file"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "examples": [
+      ":fs.write filePath=/path/to/file.txt content='Hello World'",
+      ":fs.write {filePath:'/Users/name/test.txt', content:'New content'}"
+    ]
+  },
+
+  "append": {
+    "description": "Append content to an existing file",
+
+    "type": "object",
+
+    "required": ["filePath", "content"],
+
+    "properties": {
+      "filePath": {
+        "type": "string",
+        "description": "Path to the file to append to"
+      },
+
+      "content": {
+        "type": "string",
+        "description": "Content to append to the file"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "examples": [
+      ":fs.append filePath=/path/to/file.txt content='Additional text'",
+      ":fs.append {filePath:'/Users/name/log.txt', content:'New log entry'}"
+    ]
+  },
+
+  "update": {
+    "description": "Update specific content in a file using search and replace",
+
+    "type": "object",
+
+    "required": ["filePath", "search", "replace"],
+
+    "properties": {
+      "filePath": {
+        "type": "string",
+        "description": "Path to the file to update"
+      },
+
+      "search": {
+        "type": "string",
+        "description": "Text to search for in the file"
+      },
+
+      "replace": {
+        "type": "string",
+        "description": "Text to replace the search text with"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "examples": [
+      ":fs.update filePath=/path/to/file.txt search='old' replace='new'",
+      ":fs.update {filePath:'/Users/name/config.txt', search:'debug=false', replace:'debug=true'}"
+    ]
+  },
+
+  "delete": {
+    "description": "Delete a file from the filesystem",
+
+    "type": "object",
+
+    "required": ["filePath"],
+
+    "properties": {
+      "filePath": {
+        "type": "string",
+        "description": "Path to the file to delete"
+      }
+    },
+
+    "additionalProperties": false,
+
+    "examples": [
+      ":fs.delete filePath=/path/to/file.txt",
+      ":fs.delete {filePath:'/Users/name/oldfile.txt'}"
+    ]
+  }
+}

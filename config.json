@@ -1,0 +1,5 @@
+{
+  "userPath": "./user",
+  "detectorPort": 4545,
+  "comment": "The system will automatically resolve ./user to a full absolute path relative to the core engine."
+}
