@@ -95,7 +95,6 @@ router_accept_line() {
   if [[ "$first" == "--" ]]; then
     print -s -- "$raw"
     zle .reset-prompt
-    print ""
     # Try binary first, then node fallback
     if [[ -x "$SCRIPT_HOME/bin/termination-engine" ]]; then
       "$SCRIPT_HOME/bin/termination-engine" "$raw" 2>&1
@@ -103,7 +102,6 @@ router_accept_line() {
       node "$SCRIPT_HOME/index.js" "$raw" 2>&1
     fi
 
-    print ""
     _reinject
     return
   fi
@@ -112,7 +110,6 @@ router_accept_line() {
   if [[ "$first" == :* ]]; then
     print -s -- "$raw"
     zle .reset-prompt
-    print ""
     # Try binary first, then node fallback
     if [[ -x "$SCRIPT_HOME/bin/termination-engine" ]]; then
       "$SCRIPT_HOME/bin/termination-engine" "$raw" 2>&1
@@ -120,7 +117,6 @@ router_accept_line() {
       node "$SCRIPT_HOME/index.js" "$raw" 2>&1
     fi
 
-    print ""
     _reinject
     return
   fi
